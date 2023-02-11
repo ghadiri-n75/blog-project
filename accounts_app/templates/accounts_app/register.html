@@ -1,0 +1,36 @@
+{% extends 'accounts_app/login_base.html' %}
+
+
+{% block form %}
+{{ form.errors }}
+<form action="#" class="signin-form" method='POST'>
+	{% csrf_token %}
+	<div class="form-group">
+		{{ form.username}}
+	</div>
+
+	<div class="form-group">
+		{{ form.email}}
+	</div>
+
+	<div class="form-group">
+		{{ form.password_1}}
+		<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	</div>
+
+	<div class="form-group">
+		{{ form.password_2}}
+		<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="form-control btn btn-primary submit px-3">register</button>
+	</div>
+	<div class="form-group d-md-flex">
+
+		<div class="w-50 text-md-right">
+			<a href="{% url 'accounts_app:login' %}" style:" color:#fff ">Login</a>
+		</div>
+	</div>
+</form>
+{% endblock form %}
